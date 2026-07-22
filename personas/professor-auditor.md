@@ -2,91 +2,121 @@
 
 An audit rubric for reviewing web design and copy. Load it and say
 *"Audit this using the Professor lens."* The output is a plain, direct critique
-report — not a character performance. Do not roleplay, do not adopt a voice, do
+report, not a character performance. Do not roleplay, do not adopt a voice, do
 not use catchphrases. State findings as findings.
+
+## The one principle everything hangs on
+
+**Slop is the absence of a decision.** It is not a word, not a font, not a
+color. It is what a tool produces when it reaches for the statistically safe
+middle of everything it has seen and nobody overrides it. Every real fix is a
+specific, un-averageable choice: a concrete fact in a sentence, a font nobody
+defaults to, an opinion stated plainly, a layout the average would not pick.
+
+So the Professor's actual job is to find the places where **no decision was
+made** and name them. The tells below are how you spot those places. They are
+evidence, not the crime.
 
 The lens has three priorities, in order:
 
 1. Does this solve a real person's problem?
-2. Is it AI slop? (the specialty — always keep this radar on)
+2. Where was no decision made? (the slop specialty)
 3. Is it leaning on tired web-design clichés?
-
-Everything below is drawn from current sources on AI-generated design and
-writing tells. Citations are at the bottom.
-
----
 
 ## How to run the audit
 
-For each item, name the specific pattern, say why it's a problem, and give a
-concrete fix. "This feels generic" is not a finding. "This hero uses the
-default AI template — vague headline, two empty CTAs — rewrite the headline to
-name who it's for and what they get" is a finding.
+For each finding, name the specific pattern, say why it is a problem, and give a
+concrete fix. "This feels generic" is not a finding. "This hero is the default
+AI template: vague headline, two empty CTAs. Rewrite the headline to name who
+it is for and what they get" is a finding.
 
 Report in this order:
 
 1. **First impression.** The honest 5-second read a real visitor gets.
 2. **Problem fit.** Who is this for? What do they need immediately? Where does
    the page fail to answer their actual question?
-3. **AI-slop flags.** Each tell named, with location and fix.
+3. **No-decision flags.** Where the work took the average. Each named, located,
+   fixed.
 4. **Cliché flags.** Tired patterns, with fix.
-5. **One pattern worth stealing.** A stronger, current approach to the same
+5. **One pattern worth stealing.** A stronger current approach to the same
    problem, with a reference if there is one.
-6. **Fix list.** Prioritized, highest-impact first, ending with the single
-   most important change.
+6. **Fix list.** Prioritized, highest-impact first, ending with the single most
+   important change.
 
-Stay grounded. If something is fine, say it's fine and move on. Do not
+Stay grounded. If something is fine, say it is fine and move on. Do not
 manufacture problems to look thorough.
 
 ---
 
-## AI-slop tells (visual)
+## Strong signals (lead with these)
 
-- **Default fonts.** Inter, Poppins, Roboto, Montserrat, Geist, and DM Sans
-  reportedly account for ~94% of AI-generated frontend output. Inter especially
-  reads as machine-default.
-- **Default color signatures.** Purple/violet-to-blue gradients (e.g. Tailwind
-  `from-blue-600 to-indigo-700`), cyan-on-dark, and stock Tailwind values like
-  `blue-500` / `indigo-600`. Pure `#000` and pure `#fff` text where a real
-  designer would use an off-black (`#1a1612`, `#141820`).
-- **Uniform card layouts.** Rounded-corner cards in even grids, identical
-  spacing everywhere, every section the same shape.
-- **Glassmorphism and decorative gradients** applied with no reason.
-- **The silhouette test.** Reduce the page to a ~200px-wide black-and-white
-  blur. If it's indistinguishable from three competitor pages, the structure
-  itself is slop.
+These are structural. They are hard to fake and hard to strip, because fixing
+them requires a real decision or real information the tool cannot invent.
 
-## AI-slop tells (copy)
+### In copy
 
-- **Overused vocabulary.** delve, tapestry, landscape, testament, pivotal,
-  crucial, vibrant, multifaceted, seamless, elevate, unlock, robust,
-  cutting-edge, "in today's fast-paced/ever-evolving world," "it's important to
-  note," "in summary/in conclusion." These appear at many times human rates.
-- **Empty confident copy.** Sentences that sound authoritative but carry no
-  specific information ("unlock the power of seamless solutions").
-- **Em-dash splicing.** Multiple em-dashes per paragraph joining clauses that
-  should be separate sentences. Several per section is a strong 2026 tell.
-- **Rule-of-three everywhere.** Every list exactly three items; every sentence
-  a tricolon.
-- **Uniform rhythm.** Same sentence length throughout, mechanically even
-  paragraph structure, constant hedging.
-- **Decorative emoji** standing in for real personality.
-- **Empty CTAs.** "Get Started" / "Learn More" that say nothing about what
-  happens next.
+- **Cadence uniformity.** The number-one 2026 tell. Sentence after sentence in
+  the same 18-to-24-word rhythm, paragraph after paragraph the same shape. A
+  person writes uneven because a person thinks uneven. **Apply the read-aloud
+  test:** machine prose flatlines out loud; human prose speeds up and slows
+  down. Fix: vary sentence length on purpose. Do not over-fragment either — a
+  page of five-word sentences is its own tell.
+- **Regression to the mean.** Specifics sanded into generalities. "Inventor of
+  the first train-coupling device" becomes "a revolutionary titan of industry":
+  more impressive, less true. Fix: put back one concrete, un-inventable detail
+  per section — a real number, name, date, or plainly stated opinion.
+- **Inflated significance.** Padding about legacy, importance, and broader
+  trends bolted onto things that do not need it. "Stands as a testament to,"
+  "plays a pivotal role in the evolving landscape," and present-participle tails
+  that add nothing ("...contributing to the region's growth").
+- **Empty confident copy.** Sentences that sound authoritative and carry no
+  information. Delete-test every sentence: if it survives deletion without
+  losing meaning, it was slop.
+
+### In design
+
+- **Convergence on the mean.** The visual version of the same disease. Ask a
+  tool for "a modern fintech landing page" and it returns the average of every
+  fintech page it trained on. Unrelated products end up feeling identical. Fix:
+  make one intentional choice the average would not.
+- **The silhouette test.** Blur the page to a ~200px greyscale thumbnail. If it
+  is indistinguishable from three competitor pages, the structure is generic and
+  no amount of polish fixes it. Start over on structure.
+- **Default fonts.** Inter especially, paired with a system fallback and no
+  other typographic decision — a strong sign nothing was styled on purpose.
+- **Default color signatures.** Purple-to-blue and purple-cyan mesh gradients in
+  heroes/CTAs/backgrounds, stock Tailwind values (`blue-500`, `indigo-600`),
+  pure `#000`/`#fff` text where a designer would pick an off-black.
+- **Default scaffolding.** Rounded-card grids, floating 3D shapes, sidebar-plus-
+  hero, predictable hover effects, repeated until every section rhymes.
+
+## Weak signals (do not lead with these)
+
+Real but easy to fake and easy to strip, so treat them as corroboration, never
+as the whole case:
+
+- **Em dashes.** Overused by some models, but journalists avoid them and
+  essayists overuse them, and GPT-5.1 now suppresses them. Em-dash count alone
+  proves nothing.
+- **Vocabulary list.** delve, tapestry, testament, pivotal, seamless, robust,
+  vibrant, elevate, unlock. One is coincidence; a dense cluster is corroborating
+  evidence, not a verdict. The list also shifts as models change.
+- **Rule-of-three, Title Case headings, bold-on-everything, inline-header
+  bullet lists, "serves as / boasts" instead of plain "is."** Formatting
+  reflexes. Supporting evidence.
+- **Decorative emoji, empty CTAs** ("Get Started" / "Learn More" that name no
+  destination).
 
 ## Web-design clichés
 
-- Carousels/sliders users don't interact with.
-- Pop-ups before any value is shown (banner blindness — users dismiss on
-  reflex).
+- Carousels and sliders users do not interact with.
+- Pop-ups before any value is shown (users dismiss on reflex).
 - Autoplay video with sound.
 - Fake urgency, fake testimonials, fabricated social proof.
-- Centered text walls with no visual hierarchy.
-- Generic template scaffolding (About / Features / Pricing / Contact) with
-  nothing earned in it.
+- Centered text walls with no hierarchy.
 - Animation, parallax, and scroll-jacking with no purpose.
 - Generic error messages ("Invalid input") instead of specific inline help.
-- Multi-level menus and hidden navigation that bury what people came for.
+- Multi-level menus that bury what people came for.
 
 ## Problem-fit checks
 
@@ -97,26 +127,32 @@ manufacture problems to look thorough.
 
 ## The AI-trends note
 
-Keep a running watch on where AI-generated design and product are heading, and
-flag when work matches a current machine-default pattern. This is the one area
-to actively research rather than assume — the tells shift as the tools change.
+Keep a running watch on where AI-generated design is heading, and flag when work
+matches a current machine-default pattern. This is the one area to actively
+research rather than assume: the defaults shift as the tools change (the scale
+is real — the AI website-builder market is projected at $6.3B in 2026, and a
+CHI 2024 study found exposure to AI output measurably lowers human originality).
 
 ---
 
 ## Quick-start prompt
 
-> Audit the page/design/copy below using the Professor lens. Report: first
-> impression, problem fit, AI-slop flags (name each tell + fix), cliché flags,
-> one stronger current pattern worth stealing, and a prioritized fix list
-> ending with the single most important change. Plain findings, no roleplay.
+> Audit the page/design/copy below using the Professor lens. First find where no
+> decision was made. Report: first impression, problem fit, no-decision flags
+> (name each + fix), cliché flags, one stronger current pattern worth stealing,
+> and a prioritized fix list ending with the single most important change. Use
+> the read-aloud test on the copy. Lead with structural signals, not em-dash or
+> word-list counts. Plain findings, no roleplay.
 
 ---
 
 ## Sources
 
-- [925studios — AI Slop Web Design guide (2026)](https://www.925studios.co/blog/ai-slop-web-design-guide)
-- [aicheckr.io — What Is AI Slop & How to Detect It (2026)](https://www.aicheckr.io/blog/what-is-ai-slop-and-how-to-detect-it)
-- [Sailop — AI Slop 2026: State of the AI-Generated Web](https://www.sailop.com/blog/ai-slop-2026-state-of-the-ai-generated-web)
 - [Wikipedia — Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)
+- [Duey AI — The em-dash myth: what actually gives away AI writing](https://www.duey.ai/post/em-dash-ai-writing)
+- [WriteBros — How to edit AI text to feel human](https://writebros.ai/resources/how-to-edit-ai-text-to-feel-human)
+- [925studios — AI slop web design guide (2026)](https://www.925studios.co/blog/ai-slop-web-design-guide)
+- [Drawbackwards — AI-generated UI making every product look the same](https://www.drawbackwards.com/blog/ai-generated-ui-making-every-product-look-the-same)
+- [Pixso — The "sameness" problem](https://pixso.net/articles/how-to-prevent-ai-from-making-all-uis-look-the-same/)
+- [The Effects of Generative AI on Design Fixation and Divergent Thinking (CHI 2024)](https://dl.acm.org/doi/full/10.1145/3613904.3642919)
 - [Nielsen Norman — 10 Usability Heuristics](https://jakobnielsenphd.substack.com/p/heuristics-infographics)
-- [Lazarev.agency — Web design mistakes (2026)](https://www.lazarev.agency/articles/web-design-mistakes)
